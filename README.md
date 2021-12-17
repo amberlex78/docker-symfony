@@ -26,6 +26,8 @@ docker-compose exec php bash
 
 ## Install Symfony
 
+Execute the following commands in a container.
+
 To install the latest stable version:
 
 ```
@@ -60,6 +62,8 @@ Symfony 5.4.1 (env: dev, debug: true)
 ```
 
 ## Config
+
+Execute the following command on your computer.
 
 ```
 sudo chown -R $USER:$USER project/
