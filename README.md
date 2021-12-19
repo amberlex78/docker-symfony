@@ -10,7 +10,7 @@ See hostnames in the `.env` file.
 
 Add to `/etc/hosts` file lines:
 ```
-127.0.0.1 symfony5-skeleton.test
+127.0.0.1 docker-symfony.test
 127.0.0.1 adminer.test
 ```
 Clone and run the `docker-compose`:
@@ -44,7 +44,7 @@ symfony new . --full --version=lts
 
 To install a specific version:
 ```
-symfony new my_project_name --full --version=5.4
+symfony new . --full --version=5.4
 ```
 
 ## Check version
@@ -68,6 +68,7 @@ Execute the following command on your computer.
 
 ```
 sudo chown -R $USER:$USER project/
+cp project/.env project/.env.local
 ```
 
 See database connection parameters in the `.env` file.
