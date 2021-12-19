@@ -1,18 +1,19 @@
 # Docker for installing Symfony 
 
-**Docker + PHP 8.0 + MySQL 8 + Nginx + Adminer**
-
 Only for DEV, not for production!
+
+**Docker + PHP 8.0 + MySQL 8 + Nginx + Adminer**
 
 ## Setup
 
-Add to `/etc/hosts` file lines: 
+See hostnames in the `.env` file.
+
+Add to `/etc/hosts` file lines:
 ```
-127.0.0.1 docker-symfony.test
+127.0.0.1 symfony5-skeleton.test
 127.0.0.1 adminer.test
 ```
-
-Clone and run the `docker-compose`
+Clone and run the `docker-compose`:
 ```
 git clone https://github.com/amberlex78/docker-symfony
 cd docker-symfony
@@ -68,10 +69,14 @@ Execute the following command on your computer.
 ```
 sudo chown -R $USER:$USER project/
 ```
-For the access to databese modify the `.env` file
+
+See database connection parameters in the `.env` file.
+
+Database connection in the `project/.env.local` file:
 ```
 DATABASE_URL="mysql://symfony:symfony@mysql:3306/symfony?serverVersion=8.0"
 ```
+
 ## Access to site
 ```
 http://docker-symfony.test
