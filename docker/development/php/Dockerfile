@@ -2,23 +2,21 @@ FROM php:8.0-fpm
 
 # First
 RUN export DEBIAN_FRONTEND="noninteractive" && \
-    apt-get update && apt-get install -y dialog apt-utils libpq-dev zip unzip curl wget git && \
+    apt-get update && apt-get install -y dialog apt-utils libpq-dev zip unzip curl wget git && rm -rf /var/lib/apt/lists/* && \
     echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
-# GD
+# Imagick and GD
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    libmagickwand-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
     libgmp-dev && \
+    pecl install imagick && \
+    docker-php-ext-enable imagick && \
     docker-php-ext-configure gd --with-freetype=/usr/include && \
-    docker-php-ext-install gd
-
-# Imagick
-RUN apt-get update && apt-get install -y --no-install-recommends  \
-    libmagickwand-dev \
-    && pecl install imagick \
-    && docker-php-ext-enable imagick
+    docker-php-ext-install gd && \
+    rm -rf /var/lib/apt/lists/*
 
 # Packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -42,9 +40,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # PHP Extensions
 RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd && \
-    docker-php-ext-install pdo_mysql && \
-    docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
-    docker-php-ext-install mysqli \
+    docker-php-ext-install pdo_mysql \
     bcmath \
     bz2 \
     exif \
