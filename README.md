@@ -1,6 +1,6 @@
 # Docker for installing Symfony 
 
-**Docker + PHP 8.0 + MySQL 8 + Nginx + Adminer**
+**Docker + PHP 8.0 + MySQL 8 + Nginx + XDebug 3.1.2 + Adminer**
 
 Only for DEV, not for production!
 
