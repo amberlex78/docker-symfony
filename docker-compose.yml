@@ -41,7 +41,7 @@ services:
     volumes:
       - ./project:/app
     environment:
-      VIRTUAL_HOST: docker-symfony.test
+      VIRTUAL_HOST: ${NGINX_VIRTUAL_HOST}
     depends_on:
       - php
       - proxy

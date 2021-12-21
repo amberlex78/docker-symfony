@@ -6,13 +6,14 @@ Only for DEV, not for production!
 
 ## Setup
 
-Add to `/etc/hosts` file lines: 
+See hostnames in the `.env` file.
+
+Add to `/etc/hosts` file lines:
 ```
 127.0.0.1 docker-symfony.test
 127.0.0.1 adminer.test
 ```
-
-Clone and run the `docker-compose`
+Clone and run the `docker-compose`:
 ```
 git clone https://github.com/amberlex78/docker-symfony
 cd docker-symfony
@@ -43,7 +44,7 @@ symfony new . --full --version=lts
 
 To install a specific version:
 ```
-symfony new my_project_name --full --version=5.4
+symfony new . --full --version=5.4
 ```
 
 ## Check version
@@ -56,6 +57,7 @@ bin/console -V
 ```
 s -V
 ```
+
 Result:
 ```
 Symfony 6.0.1 (env: dev, debug: true)
@@ -67,11 +69,16 @@ Execute the following command on your computer.
 
 ```
 sudo chown -R $USER:$USER project/
+cp project/.env project/.env.local
 ```
-For the access to database modify the `.env` file
+
+See database connection parameters in the `.env` file.
+
+Database connection in the `project/.env.local` file:
 ```
 DATABASE_URL="mysql://symfony:symfony@mysql:3306/symfony?serverVersion=8.0"
 ```
+
 ## Access to site
 ```
 http://docker-symfony.test
