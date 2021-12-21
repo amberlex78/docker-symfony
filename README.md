@@ -1,8 +1,8 @@
 # Docker for installing Symfony 
 
-**Docker + PHP 8.0 + MySQL 8 + Nginx + XDebug 3.1.2 + Adminer**
-
 Only for DEV, not for production!
+
+**Docker + PHP 8.1 + MySQL 8 + Nginx + XDebug 3.1.2 + Adminer**
 
 ## Setup
 
@@ -58,7 +58,7 @@ s -V
 ```
 Result:
 ```
-Symfony 5.4.1 (env: dev, debug: true)
+Symfony 6.0.1 (env: dev, debug: true)
 ```
 
 ## Config
@@ -68,7 +68,7 @@ Execute the following command on your computer.
 ```
 sudo chown -R $USER:$USER project/
 ```
-For the access to databese modify the `.env` file
+For the access to database modify the `.env` file
 ```
 DATABASE_URL="mysql://symfony:symfony@mysql:3306/symfony?serverVersion=8.0"
 ```
